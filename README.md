@@ -2,7 +2,7 @@
 
 [![Software License][ico-license]](LICENSE.md)
 
-Query `Eloquent` models easily. This is ideal if you use Laravel as an API.
+Query `Eloquent` models easily. it is ideal for who uses Laravel as an API
 
 ## Install
 
@@ -54,6 +54,7 @@ class User implements AuthenticatableContract, CanResetPasswordContract
     	return $this->hasMany(\App\User::class);
     	
     }
+    
     public function posts()
     {
     
