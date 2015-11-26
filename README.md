@@ -37,6 +37,13 @@ class UserController extends Controller
   		return Fetch::all(App\User::query());
 	
 	}
+	
+	public function show($id)
+	{
+	    
+  		return Fetch::one(App\User::query(), $id, "id");
+	
+	}
 
 ...
 ```
