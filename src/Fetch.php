@@ -18,7 +18,6 @@ class Fetch extends Facade
 
     }
 
-
     /**
      * Get all of the models from the database.
      *
@@ -41,6 +40,26 @@ class Fetch extends Facade
         $paginate = Input::query('paginate', $paginate);
 
         return $paginate ? $qb->paginate($paginate): $qb->get();
+
+    }
+    /**
+     * Get one model from the database.
+     *
+     * @param  Builder  $qb
+     * @param  integer  $id 
+     * @param  string   $key defaults to "id"
+     *
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public static function one(Builder $qb, $id, $key = "id")
+    {   
+
+        $instance = new static;        
+        $request = App::make('Illuminate\Http\Request');
+
+        $qb = $instance->with($qb, $request);
+
+        return $qb->firstOrFail();
 
     }
 
