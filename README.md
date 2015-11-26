@@ -54,6 +54,7 @@ class User implements AuthenticatableContract, CanResetPasswordContract
     	return $this->hasMany(\App\User::class);
     	
     }
+    
     public function posts()
     {
     
