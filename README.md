@@ -41,7 +41,7 @@ class UserController extends Controller
 	public function show($id)
 	{
 	    
-  		return Fetch::one(App\User::query(), $id, "id");
+  		return Fetch::one(App\User::query(), $id);
 	
 	}
 
@@ -88,7 +88,7 @@ Get `Users` with their `Posts` and their `Comments` and `Friends` that have at l
 GET /user?with=["posts.comments", "friends"]&where={age:[ ">", 30]}
 ```
 
-Get `User` of `id = 1` with their `Posts`, `Friends` and `Friends of Friends`
+Get `User` of `key = 1` with their `Posts`, `Friends` and `Friends of Friends`
 ```
 GET /user/1?with=["posts", "friends.friends"]
 ```
