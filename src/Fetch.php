@@ -51,7 +51,7 @@ class Fetch extends Facade
      *
      * @return \Illuminate\Database\Eloquent\Model
      */
-    public static function one(Builder $qb, $id, $key = "id")
+    public static function one(Builder $qb, $id)
     {   
 
         $instance = new static;        
@@ -62,7 +62,6 @@ class Fetch extends Facade
         return $qb->firstOrFail();
 
     }
-
 
     /**
      * Queries models
