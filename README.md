@@ -31,10 +31,12 @@ Facade:
 
 class UserController extends Controller
 
-	public function index()
+	public function index(Request $request)
 	{
-	    
-  		return Fetch::all(App\User::query());
+	   
+	    // your criteria will overwrite criteria from Request->where  
+	    $where = [ "account_id" => $request->user()->account_id ];
+  		return Fetch::all(App\User::query(), $where);
 	
 	}
 	
