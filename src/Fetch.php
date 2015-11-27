@@ -51,12 +51,13 @@ class Fetch extends Facade
      *
      * @return \Illuminate\Database\Eloquent\Model
      */
-    public static function one(Builder $qb, $id)
+    public static function one(Builder $qb, $id, $key = "id")
     {   
 
         $instance = new static;        
         $request = App::make('Illuminate\Http\Request');
 
+        $qb = $qb->where($key, $id);
         $qb = $instance->with($qb, $request);
 
         return $qb->firstOrFail();
