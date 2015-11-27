@@ -40,7 +40,8 @@ class UserController extends Controller
 	
 	public function show($id)
 	{
-	    
+	
+	    // third parameter $key defaults to "id"
   		return Fetch::one(App\User::query(), $id);
 	
 	}
