@@ -88,7 +88,7 @@ GET /user?with=["posts", "friends"]&where={age:30}
 
 Get `Users` with their `Posts` and their `Comments` and `Friends` that have at least one `Friend` with `age` greater than 30 
 ```
-GET /user?with=["posts.comments", "friends"]&where={age:[ ">", 30]}
+GET /user?with=["posts.comments", "friends"]&where={"friends.age":[ ">", 30]}
 ```
 
 Get `User` of `key = 1` with their `Posts`, `Friends` and `Friends of Friends`
