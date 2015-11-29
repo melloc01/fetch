@@ -83,7 +83,7 @@ GET /user?with=["posts", "friends"]
 
 Get `Users` with their `Posts` and `Friends` that `age` equals 30 
 ```
-GET /user?with=["posts", "friends"]&where={age:30}
+GET /user?with=["posts", "friends"]&where={age: 30}
 ```
 
 Get `Users` with their `Posts` and their `Comments` and `Friends` that have at least one `Friend` with `age` greater than 30 
@@ -99,7 +99,7 @@ GET /user/1?with=["posts", "friends.friends"]
 #### Parameters:
 
 - array `with`: It expects the `Models` to have the `relationship method`. Accepts `dot notation`, both `Models` come when used. eg.: `?with:["posts.comments"]`. `User::posts` and `Post::comments` methods must exist
-- object|mixed `where`: It expects the `Models` to have the queried columns. eg.: `?where:{age:30}` or `?where:{age:[">",30]`
+- object|mixed `where`: It expects the `Models` to have the queried columns. Accepts `dot notation`, queries the relationship, if found at least one that matches the criteria, it returns the Model. eg.: `?where:{age: 30}`,  `?where:{age:[">", 30]}`, `where:{"friends.age":[">", 30]}`
 - integer `take`: takes this number of `Models`
 - integer `paginate`: also known as `per page`
 - integer `page`: page number
